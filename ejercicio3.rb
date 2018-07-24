@@ -1,4 +1,4 @@
-=begin
+=begin 
 Crear un método similar para que además reciba -como argumento- un *string*. 
 En este caso el método debe contar únicamente las apariciones de ese *string* en el archivo.
 =end

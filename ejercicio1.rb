@@ -1,4 +1,4 @@
-=begin
+=begin 
 Crear un método que reciba dos strings, 
 este método creará un archivo index.html y pondrá como párrafo cada uno de los strings recibidos.
 =end
