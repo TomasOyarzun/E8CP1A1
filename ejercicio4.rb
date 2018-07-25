@@ -31,6 +31,19 @@ def total_stock
 	end
 end
 
+def total_stock_product(word)
+	#Reading info.txt
+	file = File.open('info.txt', 'r')
+	products = file.readlines.map(&:chomp)
+	file.close
+
+	products.each do |product|
+		a = product.split(', ')[1..3]
+	 	b = a.inject(0){|acum,e| acum + e.to_i }
+
+	 	puts "La cantidad de stock de #{word} es: #{b}" if product.split(', ')[0] == word
+	end
+end
 
 
 #Menus
@@ -39,7 +52,7 @@ def main_menu
 	while option != 6 
 		puts '--------------------------------------'
 		puts 'Ingrese 1 para conocer la cantidad de productos existentes'
-		puts 'Ingrese 2 para conocer la cantidad de stock total'
+		puts 'Ingrese 2 para conocer la cantidad de stock total de un producto'
 		puts 'Ingrese 3 para conocer los productos no registrados en bodega'
 		puts 'Ingrese 4 para conocer el stock de productos menor al valor ingresado'
 		puts 'Ingrese 5 para registrar un nuevo producto con su stock'
@@ -50,7 +63,9 @@ def main_menu
 		when 1
 			sub_menu
 		when 2
-			total_stock
+			puts 'Ingrese nombre producto:'
+			answ = gets.chomp
+			total_stock_product(answ)
 		when 3
 			no_registered_products
 		when 4
